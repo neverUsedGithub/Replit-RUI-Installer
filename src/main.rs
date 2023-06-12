@@ -47,7 +47,7 @@ fn main() {
 
     println!("{} {} {} {}", Paint::blue("installing"), Paint::yellow("rui").bold(), Paint::blue("into"), Paint::yellow(&args.outdir).bold());
     run_command(format!("git clone --quiet https://github.com/replit/extensions/ {}", temporary_dir));
-    run_command(format!("git -C {} checkout --quiet 2a616ff8223e0260b9e86c16d36f930b47627fa8", temporary_dir));
+    run_command(format!("git -C {} checkout --quiet c5c3b73ac14b625f18fdeace6512765918c37cbf", temporary_dir));
 
     if fs::metadata(&args.outdir).is_ok() {
         let remove_res = fs::remove_dir_all(&args.outdir);
