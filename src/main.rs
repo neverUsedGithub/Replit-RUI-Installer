@@ -29,12 +29,12 @@ fn run_command(command: String) {
 
 #[cfg(target_family = "windows")]
 fn get_temporary() -> String {
-    return ".\\extensions".to_owned();
+    return ".\\__installer_temp".to_owned();
 }
 
 #[cfg(target_family = "unix")]
 fn get_temporary() -> String {
-    return "./extensions".to_owned();
+    return "./__installer_temp".to_owned();
 }
 
 fn main() {
