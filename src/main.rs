@@ -18,9 +18,15 @@ fn raise_err(message: &str) {
 }
 
 fn run_command(command: String) {
-    let res = Command::new("cmd")
-        .args([ "/C", &command ])
-        .output();
+    let res = if cfg!(windows) {
+        Command::new("cmd")
+            .args([ "/C", &command ])
+            .output()
+    } else {
+        Command::new("sh")
+            .args([ "-c", &command ])
+            .output()
+    };
 
     if res.is_err() {
         raise_err(&format!("Failed to run command {}", command));
